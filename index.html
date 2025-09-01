@@ -3,14 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Word</title>
+
+  <!-- Open Graph tags (used by Discord, Facebook, etc.) -->
+  <meta property="og:title" content="Neon Word" />
+  <meta property="og:description" content="A simple neon word page" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ishubybikeless.com/" />
+  <meta property="og:image" content="https://ishubybikeless.com/preview.png" />
+
+  <!-- Twitter card tags (bonus) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Neon Word" />
+  <meta name="twitter:description" content="A simple neon word page" />
+  <meta name="twitter:image" content="https://ishubybikeless.com/preview.png" />
   <title>Bikeless?</title>
   <style>
     :root {
-      --bg: #050505;          /* page background */
-      --text: #e3fff6;        /* base text color */
-      --glow-1: #ff0000;      /* inner glow */
-      --glow-2: #910202;      /* outer glow */
-      --glow-strength: 1;     /* 0–2 (multiplier) */
+      --bg: #050505;
+      --text: #e3fff6;
+      --glow-strength: 1;
+
+      /* Bikeless */
+      /* inner glow */
+      --glow-1: #ff0000;
+      /* outer glow */
+      --glow-2: #910202;
+      /* glow multiplier 0-2 */
+
+      /* Bike */
+      /* inner glow */
+      /* --glow-1: #15ff00; */
+      /* outer glow */
+      /* --glow-2: #0d9800; */
+      /* glow multiplier 0-2 */
     }
 
     html, body { height: 100%; }
@@ -43,6 +69,7 @@
 <body>
   <main>
     <div class="word">BIKELESS</div>
+    <!-- <div class="word">BIKE</div> -->
   </main>
 </body>
 </html>
