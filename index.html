@@ -118,7 +118,7 @@
       const formattedMinutes = minutes.toString().padStart(2, '0');
       const formattedSeconds = seconds.toString().padStart(2, '0');
 
-      document.getElementById('timer').textContent = `${days} days, ${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+      document.getElementById('timer').textContent = `${days} days, ${formattedHours} hours, ${formattedMinutes} minutes, ${formattedSeconds} seconds`;
     }
 
     // Update immediately and then every second
