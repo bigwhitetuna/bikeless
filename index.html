@@ -59,12 +59,71 @@
         0 0 calc(60px * var(--glow-strength)) var(--glow-2),
         0 0 calc(120px * var(--glow-strength)) var(--glow-2);
     }
+
+    .since-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .since-label {
+      color: var(--text);
+      font-size: clamp(1rem, 4vw, 2rem);
+      font-weight: 300;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .timer {
+      color: var(--text);
+      font-size: clamp(1.2rem, 5vw, 2.5rem);
+      font-weight: 500;
+      font-family: 'Courier New', monospace;
+      text-shadow:
+        0 0 calc(5px * var(--glow-strength)) var(--glow-1),
+        0 0 calc(15px * var(--glow-strength)) var(--glow-2);
+      letter-spacing: 0.05em;
+    }
   </style>
 </head>
 <body>
   <main>
     <div class="word">BIKELESS</div>
     <!-- <div class="word">BIKE</div> -->
+    <div class="since-container">
+      <span class="since-label">since:</span>
+      <div class="timer" id="timer">0 days, 00:00:00</div>
+    </div>
   </main>
+  <script>
+    function updateTimer() {
+      const targetDate = new Date('2025-06-18T00:00:00');
+      const now = new Date();
+      const diffMs = now - targetDate;
+
+      if (diffMs < 0) {
+        document.getElementById('timer').textContent = 'Not yet...';
+        return;
+      }
+
+      const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+      const formattedHours = hours.toString().padStart(2, '0');
+      const formattedMinutes = minutes.toString().padStart(2, '0');
+      const formattedSeconds = seconds.toString().padStart(2, '0');
+
+      document.getElementById('timer').textContent = `${days} days, ${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    }
+
+    // Update immediately and then every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
 </body>
 </html>
